@@ -1,0 +1,174 @@
+﻿@model StudyWeb.Models.Question
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Chi tiết</h2>
+
+<div>
+    <h4>Câu hỏi</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Nội dung câu hỏi
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.question1)
+        </dd>
+
+        <!--
+
+    <dt>
+        @Html.DisplayNameFor(model => model.imageQuestion1)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.imageQuestion1)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.imageQuestion2)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.imageQuestion2)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.imageQuestion3)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.imageQuestion3)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.imageQuestion4)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.imageQuestion4)
+    </dd>
+
+        -->
+
+        <dt>
+            Đáp án A
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.answer1)
+        </dd>
+
+        <dt>
+            Đáp án B
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.answer2)
+        </dd>
+
+        <dt>
+            Đáp án C
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.answer3)
+        </dd>
+
+        <dt>
+            Đáp án D
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.answer4)
+        </dd>
+
+        <dt>
+            Đáp án đúng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.correctAnswer)
+        </dd>
+
+        <!--
+
+    <dt>
+        @Html.DisplayNameFor(model => model.imageAnswer1)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.imageAnswer1)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.imageAnswer2)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.imageAnswer2)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.imageAnswer3)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.imageAnswer3)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.imageAnswer4)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.imageAnswer4)
+    </dd>
+
+        -->
+
+        <dt>
+            Điểm
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.score)
+        </dd>
+
+        <!--
+
+    <dt>
+        Trạng thái
+    </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.status)
+        </dd>
+                    -->
+
+        <dt>
+            Hiển thị
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.display)
+        </dd>
+
+        <dt>
+            Tên bài kiểm tra
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Test.nameTest)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Sửa", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Danh sách câu hỏi", "Index")
+</p>

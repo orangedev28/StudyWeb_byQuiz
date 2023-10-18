@@ -1,0 +1,112 @@
+﻿@model StudyWeb.Models.Comment
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Xóa</h2>
+
+<h3>Bạn có chắc muốn xóa bình luận này?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            idComment
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idComment)
+        </dd>
+
+        <dt>
+            Nội dung bình luận
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contentComment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.imageComment1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.imageComment1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.imageComment2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.imageComment2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.imageComment3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.imageComment3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.imageComment4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.imageComment4)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.likeComment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.likeComment)
+        </dd>
+
+        <dt>
+            Thời gian bình luận
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dateComment)
+        </dd>
+
+        <dt>
+            Hiển thị
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.display)
+        </dd>
+
+        <dt>
+            Tên
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Account.fullname)
+        </dd>
+
+        <dt>
+            Nội dung bài viết
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Posts.contentPosts)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-default" /> |
+            @Html.ActionLink("Danh sách bình luận", "Index")
+        </div>
+    }
+</div>

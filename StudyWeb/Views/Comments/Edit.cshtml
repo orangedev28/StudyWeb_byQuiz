@@ -1,0 +1,120 @@
+﻿@model StudyWeb.Models.Comment
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Sửa</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Bình luận</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.id)
+
+        <div class="form-group">
+            <strong>Bài viết</strong>
+            <div class="col-md-10">
+                @Html.DropDownList("idPosts", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.idPosts, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <strong>Tên người bình luận</strong>
+            <div class="col-md-10">
+                @Html.DropDownList("idUser", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.idUser, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <!--
+        <div class="form-group">
+            @Html.LabelFor(model => model.idComment, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.idComment, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.idComment, "", new { @class = "text-danger" })
+            </div>
+        </div>
+            -->
+        <div class="form-group">
+            <strong>Nội dung bình luận</strong>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.contentComment, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.contentComment, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <strong>Ảnh bình luận 1</strong>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.imageComment1, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.imageComment1, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <strong>Ảnh bình luận 2</strong>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.imageComment2, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.imageComment2, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <strong>Ảnh bình luận 3</strong>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.imageComment3, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.imageComment3, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <strong>Ảnh bình luận 4</strong>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.imageComment4, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.imageComment4, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <!--
+        <div class="form-group">
+            @Html.LabelFor(model => model.likeComment, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.likeComment, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.likeComment, "", new { @class = "text-danger" })
+            </div>
+        </div>
+            -->
+        <div class="form-group">
+            <strong>Thời gian bình luận</strong>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.dateComment, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.dateComment, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <strong>Hiển thị</strong>
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.display)
+                    @Html.ValidationMessageFor(model => model.display, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Lưu" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Danh sách bình luận", "Index")
+</div>

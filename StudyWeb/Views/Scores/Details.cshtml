@@ -1,0 +1,58 @@
+﻿@model StudyWeb.Models.Score
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Chi tiết</h2>
+
+<div>
+    <h4>Điểm</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Điểm
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.score1)
+        </dd>
+
+        <dt>
+            Ngày làm bài
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dateAdd)
+        </dd>
+
+        <dt>
+            Hiển thị
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.display)
+        </dd>
+
+        <dt>
+            Tên
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Account.fullname)
+        </dd>
+
+        <dt>
+            Tên bài kiểm tra
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Test.nameTest)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Danh sách điểm", "Index")
+</p>

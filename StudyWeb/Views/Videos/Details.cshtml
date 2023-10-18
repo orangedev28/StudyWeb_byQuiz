@@ -1,0 +1,190 @@
+﻿@model StudyWeb.Models.Video
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div>
+    <p style="color: black; font-size: 20px">@Model.Subjects.subjectName / @Model.nameVideo </p>
+    <a href="@Url.Action("ListVideoAdmin", "Videos", new { id = Model.idSubjects})" class="add_posts">
+        <h5><img height="24" width="24" src="~/Content/images/back.png" /> Quay lại</h5>
+    </a>
+</div>
+<br />
+<br />
+
+<div class="card" style="background: rgba(0,0,0,0.5); min-height: 200px;">
+
+    <div class="card-header" style="background: rgba(0,0,0,0.5); ">
+        <div class="row">
+            <div class="col-md-9">
+                <h1 style="color: white; margin-left: 20px; margin-top: 10px">@Model.nameVideo</h1>
+            </div>
+            <div class="col-md-3">
+                <h2 style="color: white; margin-top: 13px">@Model.dateUpload</h2>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="css_card-body">
+            <div class="row" style="border-bottom: solid 2px; border-color: black;">
+                <h3 style="color: white; margin-left: 30px">@Model.describe</h3>
+            </div>
+            <br />
+            <div style="min-height: 0px;">
+                <div style="text-align: center">
+                    <video controls="controls" height="300" width="550" style="margin:10px;">
+                        <source src="~/Video/@Model.linkVideo" type="video/mp4" />
+                    </video>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+
+    <div class="card-footer" style=" background: rgba(0,0,0,0.5); margin-top: 5px; text-align: center">
+        <div class="row">
+            <div class="col-md-6">
+                <h3 style="color: white">Môn học : @Model.Subjects.subjectName</h3>
+            </div>
+            <div class="col-md-6">
+                <h3 style="color: white">Hiển thị : @Model.display</h3>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-6">
+                <a href="@Url.Action("Delete","Videos", new { id = Model.id})" style="width: 50%">
+                    <div class="col-md-12 css_btn" style="color: white; border: 1px solid white; text-align: center">
+                        <h3 style="margin: 10px">Xóa video</h3>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-6" style="text-align: center">
+                <a href="@Url.Action("Edit","Videos", new { id = Model.id})" style="width: 50%">
+                    <div class="col-md-12 css_btn" style="color: white; border: 1px solid white; text-align: center">
+                        <h3 style="margin: 10px">Sửa video</h3>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<style>
+    .css_btn:hover{
+        background-color: white;
+        color: black;
+    }
+    .css_btn h3:hover{
+        color: black;
+    }
+
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<h2>Details</h2>
+
+    <div>
+        <h4>Video</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.nameVideo)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.nameVideo)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.describe)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.describe)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.linkVideo)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.linkVideo)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.dateUpload)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.dateUpload)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.countLike)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.countLike)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.countComment)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.countComment)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.status)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.status)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.display)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.display)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Subjects.subjectName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Subjects.subjectName)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>*@

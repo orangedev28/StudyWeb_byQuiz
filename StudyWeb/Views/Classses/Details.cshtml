@@ -1,0 +1,125 @@
+﻿@model StudyWeb.Models.Classs
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div>
+    <p style="color: black; font-size: 20px">Năm học/@Model.className/Bảng điều khiển</p>
+    <a href="@Url.Action("Index", "Classses", new { id = Model.id}) class="add_posts">
+        <h5><img height="24" width="24" src="~/Content/images/back.png" /> Quay lại</h5>
+    </a>
+</div>
+<br /><br /><br />
+<div id="project" class="project">
+    <div class="container" style="max-width:500px">
+        <div class="card" style="background: rgba(0,0,0,0.5); height: 500px;">
+            <div class="card-header" style="background: rgba(0,0,0,0.5); ">
+                <div class="row">
+                    <strong class="text-uppercase">
+                        <h1 style="color: white; font-size: 40px">Bảng điều khiển</h1>
+                    </strong>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="css_card-body">
+                    <br />
+                    <div style="color: white">
+                        <img class="css-img" height="100" width="100" style="padding: 10px; border: solid 1px; border-radius: 100px; background-color: white" src="~/ImagesClass/@Model.imageClass" alt="User" />
+                    </div>
+                    <br /><br />
+                    <div class="row" style="text-align:center">
+                        <div class="col-md-5" style="background-color: white; border: solid 1px; border-color: black">
+                            <strong class="text-uppercase">
+                                <a href="@Url.Action("Edit", "Classses", new { id = Model.id})">Sửa thông tin</a>
+                            </strong>
+                        </div>
+                        <div class="col-md-1"></div>
+                        <div class="col-md-5" style="background-color: white; border: solid 1px; border-color: black">
+                            <strong class="text-uppercase">
+                                <a href="@Url.Action("Delete", "Classses", new { id = Model.id})">Xóa năm học</a>
+                            </strong>
+                        </div>
+                    </div>
+                    <br /><br />
+                    <div class="row" style="text-align:center">
+                        <div class="col-md-5" style="background-color: white; border: solid 1px; border-color: black">
+                            <strong class="text-uppercase">
+                                <a href="@Url.Action("Index", "Classses", new { id = Model.id})">Các năm học</a>
+                            </strong>
+                        </div>
+                        <div class="col-md-1"></div>
+                        <div class="col-md-5" style="background-color: white; border: solid 1px; border-color: black">
+                            <strong class="text-uppercase">
+                                <a href="@Url.Action("ListSubjectsAdmin", "Subjects", new { id = Model.id})">Môn học</a>
+                            </strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<style>
+    .css-img:hover{
+        transform: rotate(16deg);
+    }
+    .css_card-body {
+        text-align: center;
+        color: white;
+    }
+
+        .css_card-body a {
+            text-align: center;
+            font-size: 23px;
+            color: black;
+        }
+
+            .css_card-body a:hover {
+                color: blue;
+            }
+
+    .row {
+        justify-content: center
+    }
+</style>
+
+@*<div>
+    <h4>Classs</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.className)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.className)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.imageClass)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.imageClass)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.display)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.display)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>*@

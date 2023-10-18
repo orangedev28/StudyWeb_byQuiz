@@ -1,0 +1,66 @@
+﻿@model IEnumerable<StudyWeb.Models.Contacts>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="card">
+    <div class="card-header" style="background-color: aqua;">
+        <div class="row">
+            <strong class="text-uppercase">Danh sách thông tin liên hệ</strong>
+        </div>
+    </div>
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            Tên
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            SĐT
+        </th>
+        
+        <th>
+            Ngày gửi
+        </th>
+        <th>
+            Trạng thái
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.fullname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.maill)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.phone)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.dateSend)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.status)
+        </td>
+        <td>
+            @using (Html.BeginForm("Approval", "Contacts", new { id = item.id }))
+            {
+                @Html.AntiForgeryToken()
+                <input style="padding: 5px; padding-left:15px; padding-right: 15px; background-color: darkblue; color: white" type="submit" name="submit" value="Duyệt" />
+            }
+            @*<a style="padding: 5px; padding-left:15px; padding-right: 15px; background-color: darkblue; color: white" href="@Url.Action("Details", "Contacts", new { id=item.id })">Duyệt</a>*@
+        </td>
+    </tr>
+}
+
+</table>

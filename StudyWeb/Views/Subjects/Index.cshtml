@@ -1,0 +1,57 @@
+﻿@model IEnumerable<StudyWeb.Models.Subjects>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="card">
+    <div class="card-header" style="background-color: aqua;">
+        <div class="row">
+            <strong class="text-uppercase">Danh sách môn học</strong>
+        </div>
+    </div>
+</div>
+
+<p>
+    @Html.ActionLink("Thêm mới", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Tên môn học
+        </th>
+        <th>
+            Ảnh môn
+        </th>
+        <th>
+            Hình ảnh
+        </th>
+        <th>
+            Năm học
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.subjectName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.imageSubjects)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.display)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Classs.className)
+        </td>
+        <td>
+            @Html.ActionLink("Sửa", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Chi tiết", "Details", new { id=item.id }) |
+            @Html.ActionLink("Xóa", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+</table>

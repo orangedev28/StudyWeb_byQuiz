@@ -1,0 +1,168 @@
+﻿@model StudyWeb.Models.Classs
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<div>
+    <p style="color: black; font-size: 20px">Năm học/@Model.className/Sửa thông tin</p>
+    <a href="@Url.Action("Details", "Classses", new { id = @Model.id })" class="add_posts">
+        <h5><img height="24" width="24" src="~/Content/images/back.png" /> Quay lại</h5>
+    </a>
+</div>
+<br /><br />
+@using (Html.BeginForm("Edit", "Classses", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <div id="project" class="project">
+        <div class="container">
+            <div class="card" style="background: rgba(0,0,0,0.5); min-height: 200px;">
+                <div class="card-header" style="background: rgba(0,0,0,0.5); ">
+                    <div class="row">
+                        <h1 style="color: white; margin-left: 30px">Thay đổi thông tin năm học</h1>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-2" style="text-align: right">
+                            <h4 style="color:white">Năm học :</h4>
+                        </div>
+                        <div class="col-md-9" style="text-align: center">
+                            @Html.EditorFor(model => model.className, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.className, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-2" style="text-align: right">
+                            <h4 style="color:white">Hiển thị :</h4>
+                        </div>
+                        <div class="col-md-9" style="text-align: center">
+                            @Html.EditorFor(model => model.display)
+                            @Html.ValidationMessageFor(model => model.display, "", new { @class = "css_display" })
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-2" style="text-align: right">
+                            <h4 style="color:white">Hình ảnh :</h4>
+                        </div>
+                        <div class="col-md-9">
+                            <input style="color: white; margin-right: 20px" type='file' name="fileUpload" />
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer" style="text-align: right; height: 60px">
+                    <button type="submit" class="add_posts" style="padding: 5px; padding-right: 10px; padding-left: 10px; margin-right: 30px; background-color: white; color: black">Lưu</button>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+}
+
+
+
+<style>
+
+    .list-box {
+        height: 35px;
+        width: 100%;
+    }
+    .btn_a {
+        color: white;
+        padding: 5px;
+        padding-left: 10px;
+        padding-right: 10px;
+        background-color: rgba(0,0,0,0.5);
+        border-radius: 8px;
+        margin-right: 20px
+    }
+
+        .btn_a:hover {
+            background: white;
+            color: dodgerblue;
+        }
+
+    .css_card-body {
+        color: white;
+    }
+
+    .card-footer {
+        height: 50px;
+    }
+
+        .card-footer input {
+            color: white;
+        }
+
+        .card-footer img:hover {
+            height: 32px;
+            width: 32px;
+        }
+
+    add_posts:hover {
+        background-color: forestgreen;
+        color: white;
+    }
+
+    img {
+        max-height: 440px;
+        max-width: 540px;
+    }
+
+    .copyright {
+        margin-top: 0;
+    }
+</style>
+@*<h2>Edit</h2>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>Classs</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.id)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.className, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.className, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.className, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.imageClass, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.imageClass, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.imageClass, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.display, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.display)
+                        @Html.ValidationMessageFor(model => model.display, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>*@

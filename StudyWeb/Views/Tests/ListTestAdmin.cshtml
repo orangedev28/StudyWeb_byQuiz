@@ -1,0 +1,71 @@
+﻿@model IEnumerable<StudyWeb.Models.Test>
+
+@{
+    ViewBag.Title = "ListTestAdmin";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@foreach (var item in Model)
+{
+    <div>
+        <p style="color: black; font-size: 20px">@item.Subjects.subjectName / Bài kiểm tra</p>
+        <a href="@Url.Action("Details","Subjects", new { id = item.idSubjects })" class="add_posts">
+            <h5><img height="24" width="24" src="~/Content/images/back.png" /> Quay lại</h5>
+        </a>
+    </div>
+    break;
+}
+
+<div id="project" class="project">
+    <div class="container">
+        <div class="card">
+            <div class="card-header" style="background-color: aqua;">
+                <div class="row">
+                    <strong class="text-uppercase">Danh sách bài kiểm tra</strong>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div style="text-align: right">
+            <a style="padding: 10px; background-color: forestgreen; color: white" href="@Url.Action("Create","Tests")">
+                Thêm bài kiểm tra
+            </a>
+        </div>
+        <br />
+        <br />
+        @foreach (var item in Model)
+        {
+            <div class="card">
+                <div class="card-header" style="background-color: whitesmoke;">
+                    <div class="row">
+                        <div class="col-md-10">
+                            <a href="@Url.Action("Details","Tests", new { id = item.id })">
+                                <strong class="text-uppercase">@item.nameTest</strong>
+                            </a>
+                        </div>
+                        <div class="col-md-2" style="text-align:center">
+                            <a class="work" href="@Url.Action("ListQuestionAdmin","Questions",new { id = item.id })">Xem câu hỏi</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+
+        }
+    </div>
+</div>
+<style>
+    .project {
+        min-height: 70vh;
+    }
+
+    .work {
+        background-color: #0095ff;
+        color: white;
+        padding: 5px;
+        padding-left: 20px;
+        padding-right: 20px;
+        border: 2px;
+        border-radius: 8px;
+    }
+</style>

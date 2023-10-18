@@ -1,0 +1,175 @@
+﻿@model StudyWeb.Models.Subjects
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+
+
+<div>
+    <p style="color: black; font-size: 20px">@Model.Classs.className / @Model.subjectName</p>
+    <a href="@Url.Action("ListSubjectsAdmin", "Subjects", new { id = Model.idClass})" class="add_posts">
+        <h5><img height="24" width="24" src="~/Content/images/back.png" /> Quay lại</h5>
+    </a>
+</div>
+<br />
+<br />
+<br />
+<div id="project" class="project">
+    <div class="container" style="max-width:500px">
+        <div class="card" style="background: rgba(0,0,0,0.5); min-height: 500px;">
+            <div class="card-header" style="background: rgba(0,0,0,0.5); ">
+                <div class="row">
+                    <strong class="text-uppercase">
+                        <h1 style="color: white; font-size: 40px">Bảng điều khiển</h1>
+                    </strong>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="css_card-body">
+                    <div style="color: white">
+                        <img class="css-img" height="100" width="100" style="padding: 10px; border: solid 1px; border-radius: 100px; background-color: white" src="~/ImagesSubject/@Model.imageSubjects" alt="User" />
+                    </div><br />
+                    <div class="row" style="text-align: center">
+                        <h1 style="color: white">@Model.subjectName </h1>
+                    </div>
+                    <br /><br />
+                    <div class="row" style="text-align:center">
+                        <div class="col-md-5" style="background-color: white; border: solid 1px; border-color: black">
+                            <strong class="text-uppercase">
+                                <a href="@Url.Action("Edit", "Subjects", new { id = Model.id})">Sửa thông tin</a>
+                            </strong>
+                        </div>
+                        <div class="col-md-1"></div>
+                        <div class="col-md-5" style="background-color: white; border: solid 1px; border-color: black">
+                            <strong class="text-uppercase">
+                                <a href="@Url.Action("Delete", "Subjects", new { id = Model.id})">Xóa môn học</a>
+                            </strong>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row" style="text-align:center">
+                        <div class="col-md-5" style="background-color: white; border: solid 1px; border-color: black">
+                            <strong class="text-uppercase">
+                                <a href="@Url.Action("ListDocumentAdmin", "Documents", new { id = Model.id})">Tài liệu môn</a>
+                            </strong>
+                        </div>
+                        <div class="col-md-1"></div>
+                        <div class="col-md-5" style="background-color: white; border: solid 1px; border-color: black">
+                            <strong class="text-uppercase">
+                                <a href="@Url.Action("ListTestAdmin", "Tests", new { id = Model.id})">Bài kiểm tra</a>
+                            </strong>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row" style="text-align:center">
+                        <div class="col-md-5" style="background-color: white; border: solid 1px; border-color: black">
+                            <strong class="text-uppercase">
+                                <a href="@Url.Action("ListVideoAdmin", "Videos", new { id = Model.id})">Video bài giảng</a>
+                            </strong>
+                        </div>
+                    </div>
+                    <br /><br />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<style>
+    .css-img:hover {
+        transform: rotate(16deg);
+    }
+
+    .css_card-body {
+        text-align: center;
+        color: white;
+    }
+
+        .css_card-body a {
+            text-align: center;
+            font-size: 23px;
+            color: black;
+        }
+
+            .css_card-body a:hover {
+                color: orange;
+            }
+
+    .row {
+        justify-content: center
+    }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<div class="card">
+        <div class="card-header" style="background-color: aqua;">
+            <div class="row">
+                <strong class="text-uppercase">Chi tiết môn học</strong>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <h4>Subjects</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.subjectName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.subjectName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.imageSubjects)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.imageSubjects)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.display)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.display)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Classs.className)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Classs.className)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Sửa", "Edit", new { id = Model.id }) |
+        @Html.ActionLink("Trở về danh sách", "Index")
+    </p>*@

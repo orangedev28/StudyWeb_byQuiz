@@ -1,0 +1,74 @@
+﻿@model StudyWeb.Models.Test
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="card">
+    <div class="card-header" style="background-color: aqua;">
+        <div class="row">
+            <strong class="text-uppercase">Chi tiết bài kiểm tra</strong>
+        </div>
+    </div>
+</div>
+
+
+<div>
+    <h4>Bài kiểm tra</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên bài kiểm tra
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nameTest)
+        </dd>
+
+        <dt>
+            Thời gian làm bài
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.timeTest) phút
+        </dd>
+
+        <dt>
+            Ngày đăng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dateUpload)
+        </dd>
+
+        <dt>
+            Trạng thái
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.status)
+        </dd>
+
+        <dt>
+            Hiển thị
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.display)
+        </dd>
+
+        <dt>
+            Môn học
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Subjects.subjectName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Sửa", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Danh sách bài kiểm tra", "Index")
+</p>

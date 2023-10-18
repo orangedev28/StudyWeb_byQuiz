@@ -1,0 +1,144 @@
+﻿@model IEnumerable<StudyWeb.Models.Subjects>
+
+@{
+    ViewBag.Title = "ListSubjectsAdmin";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@foreach (var item in Model)
+{
+    <div>
+        <p style="color: black; font-size: 20px">@item.Classs.className / Môn học</p>
+        <a href="@Url.Action("Details","Classses", new { id = item.idClass })" class="add_posts">
+            <h5><img height="24" width="24" src="~/Content/images/back.png" /> Quay lại</h5>
+        </a>
+    </div>
+    break;
+}
+
+<div id="project" class="project">
+    <div class="container">
+        <div class="card">
+            <div class="card-header" style="background-color: rgba(0,0,0,0.5);">
+                <div class="row">
+                    <strong class="text-uppercase" style="color: white">Danh sách môn học</strong>
+                </div>
+            </div>
+        </div>
+        <div style="text-align: right">
+            <div style="margin: 10px">
+                <a class="btn-success css-a" style="padding: 5px; padding-left: 10px; padding-right:10px;" href="@Url.Action("Create", "Subjects")">Thêm mới</a>
+            </div>
+        </div><br />
+        <div class="row" style="justify-content: center">
+            @foreach (var item in Model)
+            {
+                <div class="product_main">
+                    <div class="row" style="text-align: center">
+                        <a href="@Url.Action("Details", "Subjects", new { id = item.id})">
+                            <div class="col-md-3" style="text-align: center">
+                                <div class="project_box">
+                                    <div class="dark_white_bg" style=" background-color: rgba(0,0,0,0.5); ">
+                                        <div>
+                                            <img src="~/ImagesSubject/@item.imageSubjects" alt="#" />
+                                            <br><br />
+                                            <h3 style="color: white">@item.subjectName</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<style>
+    .product_main {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .dark_white_bg {
+        padding: 5px;
+        background: white;
+        height: 170px;
+        width: 240px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
+    .project_box {
+        text-align: center;
+        max-width: 20%;
+        margin: 0 15px 20px 15px;
+    }
+
+    .project_box .dark_white_bg:hover {
+        background-color: white;
+        color: black;
+        transform: rotate(-12deg);
+    }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<h2>ListSubjectsAdmin</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.subjectName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.imageSubjects)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.display)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Classs.className)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.subjectName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.imageSubjects)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.display)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Classs.className)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                </td>
+            </tr>
+        }
+
+    </table>*@

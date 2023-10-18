@@ -1,0 +1,130 @@
+﻿@model StudyWeb.Models.Document
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+
+
+<div id="project" class="project">
+    <div class="container">
+
+        <div class="card" style="background: rgba(0,0,0,0.5);">
+            <div class="card-header">
+                <h1 style="color: yellow">@Model.contentDocument</h1>
+            </div>
+        </div><br />
+        <div style="text-align: right">
+            <a style="padding: 10px; background-color: royalblue; color: white; margin-right: 30px" href="@Url.Action("Edit","Documents", new { id = Model.id })">
+                Sửa tài liệu
+            </a>
+            <a style="padding: 10px; background-color: red; color: white" href="@Url.Action("Delete","Documents",new { id = Model.id })">
+                Xóa tài liệu
+            </a>
+        </div>
+        <br />
+        <div>
+            <center>
+                <iframe style="height: 900px; width:900px; margin: 50px;" src="/DocumentFile/@Model.linkDocument#toolbar=1" width="900" height="900"></iframe>
+            </center>
+        </div>
+    </div>
+</div>
+
+
+<script src="//mozilla.github.io/pdf.js/build/pdf.js"></script>
+
+
+
+
+<script src="~/Content/PDF/dpf.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<h2>Details</h2>
+
+    <div>
+        <h4>Document</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.contentDocument)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.contentDocument)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.linkDocument)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.linkDocument)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.imageDocument)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.imageDocument)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.dateUpload)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.dateUpload)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.status)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.status)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.display)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.display)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Subjects.subjectName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Subjects.subjectName)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>*@

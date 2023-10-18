@@ -1,0 +1,53 @@
+﻿@model IEnumerable<StudyWeb.Models.Test>
+
+@{
+    ViewBag.Title = "ListTest";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="project" class="project">
+    <div class="container">
+        <div class="card">
+            <div class="card-header" style="background-color: aqua;">
+                <div class="row">
+                    <strong class="text-uppercase">Danh sách bài kiểm tra</strong>
+                </div>
+            </div>
+        </div>
+        <br />
+        <br />
+        @foreach (var item in Model)
+        {
+            <div class="card">
+                <div class="card-header" style="background-color: whitesmoke;">
+                    <div class="row">
+                        <div class="col-md-10">
+                            <strong class="text-uppercase">@item.nameTest </strong>
+                        </div>
+                        <div class="col-md-2" style="text-align:center">
+                            <span>
+                                <a class="work" href="@Url.Action("ListDocument","Documents", new { id = item.idSubjects })">Tài liệu hỗ trợ</a>
+                                <a class="work" href="@Url.Action("Test","Tests",new { id = item.id })">Làm bài</a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+        }
+    </div>
+</div>
+<style>
+    .project{
+        min-height: 70vh;
+    }
+    .work {
+        background-color: #0095ff;
+        color: white;
+        padding: 2px;
+        padding-left: 20px;
+        padding-right: 20px;
+        border: 2px;
+        border-radius: 8px;
+    }
+</style>

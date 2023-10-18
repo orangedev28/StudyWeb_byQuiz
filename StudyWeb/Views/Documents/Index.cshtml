@@ -1,0 +1,62 @@
+﻿@model IEnumerable<StudyWeb.Models.Document>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Quản Lý Tài Liệu</h2>
+
+<p>
+    @Html.ActionLink("Thêm mới", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Tên tài liệu
+        </th>
+        <th>
+            Link tài liệu
+        </th>
+
+        <th>
+            Ngày đăng
+        </th>
+
+        <th>
+            Hiển thị
+        </th>
+        <th>
+            Tên môn học
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.contentDocument)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.linkDocument)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.dateUpload)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.display)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Subjects.subjectName)
+        </td>
+        <td>
+            @Html.ActionLink("Sửa", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Chi tiết", "Details", new { id=item.id }) |
+            @Html.ActionLink("Xóa", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

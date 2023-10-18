@@ -1,0 +1,53 @@
+﻿@model IEnumerable<StudyWeb.Models.Account>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<table class="table">
+    <tr style="background-color: aqua; text-align: center">
+        <th>
+            Tên
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            SĐT
+        </th>
+        <th>
+            Trạng thái
+        </th>
+        <th>
+            Loại tài khoản
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr style="text-align: center">
+        <td style="border-right: solid 1px;">
+            @Html.DisplayFor(modelItem => item.fullname)
+        </td>
+        <td style="border-right: solid 1px">
+            @Html.DisplayFor(modelItem => item.maill)
+        </td>
+        <td style="border-right: solid 1px">
+            @Html.DisplayFor(modelItem => item.phone)
+        </td>
+        <td style="border-right: solid 1px">
+            @Html.DisplayFor(modelItem => item.status)
+        </td>
+        <td style="border-right: solid 1px">
+            @Html.DisplayFor(modelItem => item.TypeAccount.typeName)
+        </td>
+        <td>
+            @Html.ActionLink("Sửa", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Chi tiết", "Details", new { id=item.id }) |
+            @Html.ActionLink("Xóa", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

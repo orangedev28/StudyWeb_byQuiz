@@ -1,0 +1,139 @@
+﻿@model IEnumerable<StudyWeb.Models.Question>
+
+@{
+    ViewBag.Title = "ResultTest";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br /><br />
+<div class="container">
+    <div class="card">
+        <div class="card-header" style="background-color: aqua;">
+            <div class="row" style="justify-content: center">
+                <strong class="text-uppercase" style="font-size: 25px;">Kết quả</strong>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <h3 class="col-md-9">
+                    Số câu đúng : @Session["true"].ToString() /  @Session["total"].ToString()
+                </h3>
+                <h3 class="col-md-3" style="text-align: right">
+                    Điểm số : @Session["score"]
+                </h3>
+            </div>
+        </div>
+    </div>
+    
+    
+
+    @{
+        int i = 0;
+    }
+    @{ 
+        int j = 0;
+    }
+    @{ 
+        string[] answer = new string[200];
+    }
+    @foreach (var a in ViewBag.listAnswer)
+    {
+        j++;
+        answer[j] = a;
+    }
+    <br />
+    <br />
+    @foreach (var item in Model)
+    {
+        i++;
+        <div class="card">
+            <div class="card-header">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-md-10">
+                            <strong style="font-size: 20px;" class="text-uppercase">Câu @i : @item.question1</strong>
+                        </div>
+                        <div class="col-md-2" style="text-align:center">
+                            <strong style="font-size: 20px;" class="text-uppercase">(@item.score điểm)</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                @if (item.imageQuestion1 != null)
+                {
+                    <div style="text-align: center">
+                        <img height="300" width="600" src="~/ImagesQuestion/@item.imageQuestion1" />
+                    </div>
+                }
+                <div style="font-size: 20px; margin-left: 30px">
+                    @Html.RadioButton(item.id.ToString(), item.answer1) A. @item.answer1 <br />
+                    @Html.RadioButton(item.id.ToString(), item.answer2) B. @item.answer2 <br />
+                    @Html.RadioButton(item.id.ToString(), item.answer3) C. @item.answer3 <br />
+                    @Html.RadioButton(item.id.ToString(), item.answer4) D. @item.answer4 <br />
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="row">
+                    @if (answer[i] == item.correctAnswer)
+                    {
+                        <div style="font-size: 20px; margin-left: 30px; color: green">
+                            Đáp án đã chọn: @answer[i]
+                        </div>
+                    }
+                    else
+                    {
+                        <div style="font-size: 20px; margin-left: 30px; color: red">
+                            Đáp án đã chọn: @answer[i]
+                        </div>
+                    }
+
+                    <div style="font-size: 20px; margin-left: 30px; text-align: right; color: green">
+                        Đáp án đúng: @item.correctAnswer
+                    </div>
+                </div>
+
+                <!--
+
+        @if (answer[i] == item.answer1)
+        {
+            <div style="font-size: 20px; margin-left: 30px; color: green">
+                Đáp án đã chọn: A
+            </div>
+        }
+        else if (answer[i] == item.answer2)
+        {
+            <div style="font-size: 20px; margin-left: 30px; color: green">
+                Đáp án đã chọn: B
+            </div>
+        }
+        else if (answer[i] == item.answer3)
+        {
+            <div style="font-size: 20px; margin-left: 30px; color: green">
+                Đáp án đã chọn: C
+            </div>
+        }
+        else if (answer[i] == item.answer4)
+        {
+            <div style="font-size: 20px; margin-left: 30px; color: green">
+                Đáp án đã chọn: D
+            </div>
+        }
+
+        <div style="font-size: 20px; margin-left: 30px; text-align: right; color: green">
+            Đáp án đúng: @item.correctAnswer
+        </div>
+
+    -->
+
+            </div>
+        </div>
+        <br />
+    }
+     @using (Html.BeginForm("newScore", "Scores", FormMethod.Post))
+    {
+        <div class="btn_complete" style="text-align: right">
+            <input style="background-color: greenyellow; color: black; padding: 5px; padding-left: 15px; padding-right: 15px" type="submit" value="Xác nhận" />
+        </div>
+    }
+    
+</div>

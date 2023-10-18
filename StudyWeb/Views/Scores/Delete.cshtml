@@ -1,0 +1,64 @@
+﻿@model StudyWeb.Models.Score
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Xóa</h2>
+
+<h3>Bạn có muốn xóa điểm kiểm tra này?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Điểm
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.score1)
+        </dd>
+
+        <dt>
+            Ngày làm bài
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dateAdd)
+        </dd>
+
+        <dt>
+            Hiển thị
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.display)
+        </dd>
+
+        <dt>
+            Tên
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Account.fullname)
+        </dd>
+
+        <dt>
+            Tên bài kiểm tra
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Test.nameTest)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-default" /> |
+            @Html.ActionLink("Danh sách điểm", "Index")
+        </div>
+    }
+</div>

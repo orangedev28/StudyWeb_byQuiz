@@ -1,0 +1,112 @@
+﻿@model StudyWeb.Models.Posts
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Xóa</h2>
+
+<h3>Bạn có chắc muốn xóa bài viết này?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Nội dung bài viết
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contentPosts)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.imagePosts1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.imagePosts1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.imagePosts2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.imagePosts2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.imagePosts3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.imagePosts3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.imagePosts4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.imagePosts4)
+        </dd>
+
+        <dt>
+            Ngày đăng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.datePost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.countLike)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.countLike)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.countComment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.countComment)
+        </dd>
+
+        <dt>
+            Trạng thái 
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.status)
+        </dd>
+
+        <dt>
+            Hiển thị
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.display)
+        </dd>
+
+        <dt>
+            Tên
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Account.fullname)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-default" /> |
+            @Html.ActionLink("Danh sách bài viết", "Index")
+        </div>
+    }
+</div>
